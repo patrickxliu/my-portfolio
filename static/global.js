@@ -13,10 +13,10 @@ function $$ (selector, context = document) {
 // }
 
 let pages = [
-	{url: ".", title: "Home"},
-	{url: "projects", title: "Projects"},
-	{url: "contact", title: "Contact"},
-    {url: "resume", title: "Resume"},
+	{url: "https://patrickxliu.github.io/my-portfolio/", title: "Home"},
+	{url: "https://patrickxliu.github.io/my-portfolio/projects", title: "Projects"},
+	{url: "https://patrickxliu.github.io/my-portfolio/contact", title: "Contact"},
+    {url: "https://patrickxliu.github.io/my-portfolio/resume", title: "Resume"},
     {url: "https://github.mit.edu/pxliu", title: "Github"}
 ];
 
@@ -29,9 +29,9 @@ for (let p of pages) {
 	let url = p.url;
 	let title = p.title;
 	// Create link and add it to nav
-    if (!ARE_WE_HOME && !url.startsWith("http")) {
-    url = "../" + url;
-    }
+    // if (!ARE_WE_HOME && !url.startsWith("http")) {
+    // url = "../" + url;
+    // }
 	let a = document.createElement("a");
     a.href = url;
     a.textContent = title;
