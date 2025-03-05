@@ -8,7 +8,7 @@
 </script>
 
 <h1>
-    Projects
+    {projects.length} Projects
 </h1>
 <div class="projects">
     <!-- <article>
