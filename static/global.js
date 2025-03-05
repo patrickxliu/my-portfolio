@@ -46,6 +46,8 @@ for (let p of pages) {
     nav.append(a);
 
 }
+console.log(location.pathname)
+console.log(nav)
 
 document.body.insertAdjacentHTML("afterbegin", `
 	<label class="color-scheme">
