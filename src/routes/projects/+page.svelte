@@ -5,11 +5,9 @@
 
 <script>
     import projects from "$lib/projects.json";
-</script>
-
-<script>
     import Project from "$lib/Project.svelte";
 </script>
+
 
 <h1>
     {projects.length} Projects
