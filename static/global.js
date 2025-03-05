@@ -36,9 +36,9 @@ for (let p of pages) {
     a.href = url;
     a.textContent = title;
 
-    // if (a.host === location.host && a.pathname === location.pathname) {
-    //     a.classList.add("current");
-    // }
+    if (a.host === location.host && a.pathname === location.pathname) {
+        a.classList.add("current");
+    }
 
     if (a.host !== location.host){
         a.target = "_blank";
@@ -46,8 +46,8 @@ for (let p of pages) {
     nav.append(a);
 
 }
-console.log(location.pathname)
-console.log(nav)
+// console.log(location.pathname)
+// console.log(nav)
 
 document.body.insertAdjacentHTML("afterbegin", `
 	<label class="color-scheme">
