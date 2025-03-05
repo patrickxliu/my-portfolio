@@ -19,10 +19,10 @@
 
     {#each projects as p}
     <article>
-      <h2>p.title</h2>
+      <h2>{p.title}</h2>
       <img src={p.image} alt="" />
       <p>
-        p.description
+        {p.description}
     </article>
     {/each}
     <!-- <article>
