@@ -23,13 +23,13 @@ let pages = [
 let nav = document.createElement("nav");
 document.body.prepend(nav);
 
-// const ARE_WE_HOME = document.documentElement.classList.contains("home");
+const ARE_WE_HOME = document.documentElement.classList.contains("home");
 
 for (let p of pages) {
 	let url = p.url;
 	let title = p.title;
 	// Create link and add it to nav
-    if (!url.startsWith("http")) {
+    if (!ARE_WE_HOME && !url.startsWith("http")) {
     url = "../" + url;
     }
 	let a = document.createElement("a");

@@ -1,4 +1,4 @@
-<h1>
+<h1 class="home">
     Patrick Liu
 </h1>
 <p>
