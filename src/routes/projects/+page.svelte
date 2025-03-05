@@ -7,6 +7,10 @@
     import projects from "$lib/projects.json";
 </script>
 
+<script>
+    import Project from "$lib/Project.svelte";
+</script>
+
 <h1>
     {projects.length} Projects
 </h1>
@@ -18,12 +22,7 @@
     </article> -->
 
     {#each projects as p}
-    <article>
-      <h2>{p.title}</h2>
-      <img src={p.image} alt="" />
-      <p>
-        {p.description}
-    </article>
+    <Project data={p} />
     {/each}
     <!-- <article>
         <h2>Sequi debitis reiciendis rerum.</h2>
