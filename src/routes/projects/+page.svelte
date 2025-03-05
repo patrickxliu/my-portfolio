@@ -11,14 +11,21 @@
     Projects
 </h1>
 <div class="projects">
-
-    <pre>{ JSON.stringify(projects, null, "\t") }</pre>
-    <article>
+    <!-- <article>
         <h2>Lorem ipsum dolor sit.</h2>
         <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Provident rerum veritatis, vel nulla unde facilis molestiae! Fugiat officia sit illum cumque. Reprehenderit harum eaque voluptate quis veritatis error sapiente maxime.</p>
-    </article>
+    </article> -->
+
+    {#each projects as p}
     <article>
+      <h2>p.title</h2>
+      <img src={p.image} alt="" />
+      <p>
+        p.description
+    </article>
+    {/each}
+    <!-- <article>
         <h2>Sequi debitis reiciendis rerum.</h2>
         <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
         <p>Commodi corporis nostrum maxime suscipit. Dolor incidunt veniam ad optio aliquam nulla? Sint incidunt, sit ipsa commodi provident, ex dolorem praesentium unde fugit eos perspiciatis quis ea, porro quo sunt.</p>
@@ -72,5 +79,5 @@
         <h2>Quam nemo odio atque!</h2>
         <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
         <p>Ipsa ipsam, nulla quam at architecto commodi vel maxime quod aspernatur? Itaque cumque accusantium, reprehenderit dolor porro id tempore incidunt nihil quaerat quasi delectus soluta dolorum odit, tenetur perspiciatis fugiat.</p>
-    </article>
+    </article> -->
 </div>
