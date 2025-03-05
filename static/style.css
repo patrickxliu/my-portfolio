@@ -1,0 +1,165 @@
+:root{
+  --color-accent: #b4d3b2;
+}
+html{
+  accent-color: var(--color-accent);
+  color-scheme: dark;
+}
+
+body {
+    /* Set line height to 1.5 times the font size
+       and use the OS’s UI font as the website font
+     */
+    font: 100%/1.5 system-ui;
+    max-width: 100ch;
+    margin-inline: auto;
+    padding: 50px;
+
+}
+
+label.color-scheme{
+  display: inline-flex;
+  gap: 4px;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  font-family: inherit;
+  font-size: 80%;
+}
+
+nav{
+  --border-color: oklch(50% 10% 200 / 40%);
+  display: flex;
+  margin-bottom: 25px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: var(--border-color);
+  
+
+  a{
+    flex: 1;
+    text-decoration: none;
+    color: inherit;
+    text-align: center;
+    padding: .5em;
+    
+  }
+
+  a.current{
+    font-weight: bold;
+    border-bottom: .2em solid var(--color-accent);
+  }
+
+  a:hover{
+    border-bottom: .2em solid var(--color-accent);
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+  }
+}
+
+form{
+  font:inherit;
+  display: grid;
+  grid-template-columns: auto 1fr;
+
+  label{
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1/-1;
+    gap: 1em;
+    padding: 5px;
+  }
+  
+}
+
+input{
+  font:inherit;
+}
+
+textarea{
+  font:inherit;
+}
+
+button{
+  font:inherit;
+  text-align: center;
+  padding: 5px;
+}
+
+img{
+  max-width: 100%;
+}
+
+.projects{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15em, 1fr));
+  gap: 1em;
+
+  article{
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-row: span 3;
+  }
+
+  h2{
+    margin: 0;
+  }
+}
+
+h1{
+  font-size: 4em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h2{
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h3{
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h4{
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h5{
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+h6{
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.Resume{
+  h2{
+    /* display: subgrid; */
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: oklch(80% 3% 200);
+  }
+  ul{
+    display: grid;
+    grid-template-columns: auto 1fr;
+    text-decoration: none;
+
+  }
+  li{
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: 1/-1;
+    text-decoration: none;
+    /* text-align: center; */
+    padding: .5em;
+  }
+
+  label.meta{
+    display: grid;
+    text-align: right;
+  }
+}
