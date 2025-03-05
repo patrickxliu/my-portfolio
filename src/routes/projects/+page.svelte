@@ -3,10 +3,16 @@
   <title>Projects</title>
 </svelte:head>
 
+<script>
+    import projects from "$lib/projects.json";
+</script>
+
 <h1>
     Projects
 </h1>
 <div class="projects">
+
+    <pre>{ JSON.stringify(projects, null, "\t") }</pre>
     <article>
         <h2>Lorem ipsum dolor sit.</h2>
         <img src="https://vis-society.github.io/labs/2/images/empty.svg" alt="">
