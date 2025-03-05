@@ -20,7 +20,7 @@
     </article> -->
 
     {#each projects as p}
-    <Project data={p} hLevel="3"/>
+    <Project data={p} />
     {/each}
     <!-- <article>
         <h2>Sequi debitis reiciendis rerum.</h2>
