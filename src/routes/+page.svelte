@@ -41,3 +41,11 @@
         <Project data={p} hLevel="3"/>
     {/each}
 </div>
+
+<style>
+    dl{
+        display: grid;
+        column-width: 1fr;
+        column-count: 3;
+    }
+</style>
