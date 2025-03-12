@@ -11,6 +11,18 @@
 </p>
 <img src="images/headshot.JPG" height="400" alt="A professional headshot of me in a suit and glasses.">
 
+{#await fetch("https://api.github.com/users/patrickxliu") }
+<p>Loading...</p>
+{:then response} {#await response.json()}
+<p>Decoding...</p>
+{:then data}
+<p>The data is { JSON.stringify(data) }</p>
+{:catch error}
+<p class="error">Something went wrong: {error.message}</p>
+{/await} {:catch error}
+<p class="error">Something went wrong: {error.message}</p>
+{/await}
+
 <h2>Latest Projects</h2>
 <div class="projects">
     {#each projects.slice(0, 3) as p}
