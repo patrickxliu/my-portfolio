@@ -27,31 +27,31 @@
 
 <style>
     nav{
-  --border-color: oklch(50% 10% 200 / 40%);
-  display: flex;
-  margin-bottom: 25px;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: var(--border-color);
+        --border-color: oklch(50% 10% 200 / 40%);
+        display: flex;
+        margin-bottom: 25px;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+        border-bottom-color: var(--border-color);
   
+        
+    }
+    a{
+            flex: 1;
+            text-decoration: none;
+            color: inherit;
+            text-align: center;
+            padding: .5em;
+            
+        }
 
-  a{
-    flex: 1;
-    text-decoration: none;
-    color: inherit;
-    text-align: center;
-    padding: .5em;
-    
-  }
+    a.current{
+        font-weight: bold;
+        border-bottom: .2em solid var(--color-accent);
+    }
 
-  a.current{
-    font-weight: bold;
-    border-bottom: .2em solid var(--color-accent);
-  }
-
-  a:hover{
-    border-bottom: .2em solid var(--color-accent);
-    background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-  }
-}
+    a:hover{
+        border-bottom: .2em solid var(--color-accent);
+        background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
+    }
 </style>
