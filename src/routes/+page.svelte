@@ -57,7 +57,7 @@
     div{
         display: grid;
         grid-template-rows: subgrid;
-        grid-row: 1/-1;
+        /* grid-row: 1/-1; */
         text-decoration: none;
         /* text-align: center; */
         padding: .5em;
