@@ -46,16 +46,16 @@ function $$ (selector, context = document) {
 // console.log(location.pathname)
 // console.log(nav)
 
-document.body.insertAdjacentHTML("afterbegin", `
-	<label class="color-scheme">
-		Theme:
-		<select>
-			<option value='light dark'>Automatic</option>
-            <option value='light'>Light</option>
-            <option value='dark'>Dark</option>
-		</select>
-	</label>`
-);
+// document.body.insertAdjacentHTML("afterbegin", `
+// 	<label class="color-scheme">
+// 		Theme:
+// 		<select>
+// 			<option value='light dark'>Automatic</option>
+//             <option value='light'>Light</option>
+//             <option value='dark'>Dark</option>
+// 		</select>
+// 	</label>`
+// );
 
 let select = document.querySelector("select");
 
