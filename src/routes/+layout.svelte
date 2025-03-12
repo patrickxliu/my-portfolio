@@ -11,10 +11,12 @@
     // add the rest of your pages here
     ];
 
-    let colorScheme = "light dark";
+    let localStorage = globalThis.localStorage ?? {};
+    let colorScheme = localStorage.colorScheme ?? "light dark";
+
     let root = globalThis?.document?.documentElement;
     $: root?.style.setProperty("color-scheme", colorScheme);
-
+    $: localStorage.colorScheme = colorScheme;
 </script>
 
 <label class="color-scheme">
@@ -36,7 +38,7 @@
     </a>
     {/each}
 </nav>
-{colorScheme}
+
 <slot /> 
 
 <style>
