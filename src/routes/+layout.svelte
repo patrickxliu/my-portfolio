@@ -36,8 +36,7 @@
   
         
     }
-    nav{
-        a{
+    a{
             flex: 1;
             text-decoration: none;
             color: inherit;
@@ -46,14 +45,13 @@
             
         }
 
-        a.current{
-            font-weight: bold;
-            border-bottom: .2em solid var(--color-accent);
-        }
+    a.current{
+        font-weight: bold;
+        border-bottom: .2em solid var(--color-accent);
+    }
 
-        a:hover{
-            border-bottom: .2em solid var(--color-accent);
-            background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
-        }
+    a:hover{
+        border-bottom: .2em solid var(--color-accent);
+        background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
     }
 </style>
