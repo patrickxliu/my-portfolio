@@ -45,7 +45,15 @@
 <style>
     dl{
         display: grid;
-        column-width: 1fr;
-        column-count: 3;
+        grid-template-columns: auto 1fr;
+        text-decoration: none;
+    }
+    dt{
+        display: grid;
+        grid-template-columns: subgrid;
+        grid-column: 1/-1;
+        text-decoration: none;
+        /* text-align: center; */
+        padding: .5em;
     }
 </style>
