@@ -1,4 +1,7 @@
 <script>
+    import { page } from "$app/stores";
+
+
     let pages = [
   { url: "./", title: "Home" },
   { url: "./projects", title: "Projects" },
@@ -9,6 +12,9 @@
 ];
 </script>
 
+{
+    JSON.stringify($page)
+  }
 <nav>
     {#each pages as p}
     <a href="{p.url}">{p.title}</a>
