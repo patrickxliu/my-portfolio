@@ -51,7 +51,7 @@
 <style>
     dl{
         display: grid;
-        grid-template-columns: auto 1fr;
+        grid-template-columns: 1fr;
         text-decoration: none;
     }
     div{
