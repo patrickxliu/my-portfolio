@@ -18,7 +18,7 @@
 <nav>
     {#each pages as p}
     <a href={p.url}
-    class:current={$page.url === p.url}
+    class:current={$page.url == p.url}
     target={p.url.endsWith("pxliu") ? "_blank" : null}
     >
         {p.title}
