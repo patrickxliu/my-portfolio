@@ -20,18 +20,12 @@
     <section>
       <h2>My GitHub Stats</h2>
       <dl>
-        <div>
             <dt>Followers:</dt>
             <dd>{data.followers}</dd>
-        </div>
-        <div>
             <dt>Following:</dt>
             <dd>{data.following}</dd>
-        </div>
-        <div>
             <dt>Public Repositories:</dt>
             <dd>{data.public_repos}</dd>
-        </div>
       </dl>
     </section>
   {:catch error}
@@ -54,13 +48,5 @@
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1em,2em;
         text-decoration: none;
-    }
-    div{
-        display: grid;
-        grid-template-rows: subgrid;
-        /* grid-row: 1/-1; */
-        text-decoration: none;
-        /* text-align: center; */
-        padding: .5em;
     }
 </style>
