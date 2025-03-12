@@ -55,7 +55,7 @@
     }
     dd{
         text-align: left;
-        font-size: large;
+        font-size: x-large;
         font-weight: lighter;
     }
 </style>
