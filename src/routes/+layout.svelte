@@ -4,9 +4,9 @@
 
     let pages = [
 	{url: "https://patrickxliu.github.io/my-portfolio/", title: "Home"},
-	{url: "https://patrickxliu.github.io/my-portfolio/projects", title: "Projects"},
-	{url: "https://patrickxliu.github.io/my-portfolio/contact", title: "Contact"},
-    {url: "https://patrickxliu.github.io/my-portfolio/resume", title: "Resume"},
+	{url: "https://patrickxliu.github.io/my-portfolio/projects/", title: "Projects"},
+	{url: "https://patrickxliu.github.io/my-portfolio/contact/", title: "Contact"},
+    {url: "https://patrickxliu.github.io/my-portfolio/resume/", title: "Resume"},
     {url: "https://github.mit.edu/pxliu", title: "Github"}
   // add the rest of your pages here
 ];
