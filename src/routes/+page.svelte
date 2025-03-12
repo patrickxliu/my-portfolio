@@ -52,6 +52,7 @@
     dl{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1em,2em;
         text-decoration: none;
     }
     div{
