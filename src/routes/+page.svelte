@@ -21,10 +21,10 @@
       <h2>My GitHub Stats</h2>
       <dl>
             <dt>Followers:</dt>
-            <dd>{data.followers}</dd>
             <dt>Following:</dt>
-            <dd>{data.following}</dd>
             <dt>Public Repositories:</dt>
+            <dd>{data.followers}</dd>
+            <dd>{data.following}</dd>
             <dd>{data.public_repos}</dd>
       </dl>
     </section>
@@ -48,5 +48,14 @@
         grid-template-columns: 1fr 1fr 1fr;
         grid-template-rows: 1em,2em;
         text-decoration: none;
+    }
+    dt{
+        text-align: left;
+        font-size: small;
+    }
+    dd{
+        text-align: left;
+        font-size: large;
+        font-weight: lighter;
     }
 </style>
