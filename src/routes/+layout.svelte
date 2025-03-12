@@ -63,4 +63,14 @@
         border-bottom: .2em solid var(--color-accent);
         background-color: color-mix(in oklch, var(--color-accent), canvas 85%);
     }
+
+    label.color-scheme{
+        display: inline-flex;
+        gap: 4px;
+        position: absolute;
+        top: 2rem;
+        right: 2rem;
+        font-family: inherit;
+        font-size: 80%;
+    }
 </style>
