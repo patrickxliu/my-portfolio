@@ -1,5 +1,3 @@
-YOLO <slot /> 
-
 <script>
     let pages = [
   { url: "./", title: "Home" },
@@ -16,3 +14,5 @@ YOLO <slot />
     <a href="{p.url}">{p.title}</a>
     {/each}
 </nav>
+
+<slot /> 
