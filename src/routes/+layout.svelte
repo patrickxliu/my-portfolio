@@ -3,18 +3,20 @@
 
 
     let pages = [
-	{url: "https://patrickxliu.github.io/my-portfolio/", title: "Home"},
-	{url: "https://patrickxliu.github.io/my-portfolio/projects/", title: "Projects"},
-	{url: "https://patrickxliu.github.io/my-portfolio/contact/", title: "Contact"},
-    {url: "https://patrickxliu.github.io/my-portfolio/resume/", title: "Resume"},
-    {url: "https://github.mit.edu/pxliu", title: "Github"}
-  // add the rest of your pages here
-];
+        {url: "https://patrickxliu.github.io/my-portfolio/", title: "Home"},
+        {url: "https://patrickxliu.github.io/my-portfolio/projects/", title: "Projects"},
+        {url: "https://patrickxliu.github.io/my-portfolio/contact/", title: "Contact"},
+        {url: "https://patrickxliu.github.io/my-portfolio/resume/", title: "Resume"},
+        {url: "https://github.mit.edu/pxliu", title: "Github"}
+    // add the rest of your pages here
+    ];
+
+    let colorScheme = "light dark";
 </script>
 
 <label class="color-scheme">
     Theme:
-    <select>
+    <select bind:value={ colorScheme }>
         <option value="light dark">Automatic</option>
         <option value="light">Light</option>
         <option value="dark">Dark</option>
@@ -31,7 +33,7 @@
     </a>
     {/each}
 </nav>
-
+{colorScheme}
 <slot /> 
 
 <style>
