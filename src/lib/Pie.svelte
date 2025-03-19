@@ -58,6 +58,8 @@
         padding: .5em;
         margin: .5em;
         flex: 1;
+        height: fit-content;
+        width: fit-content;
     }
     li{
         display: flex;
