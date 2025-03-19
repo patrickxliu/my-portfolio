@@ -60,6 +60,7 @@
         flex: 1;
         height: fit-content;
         width: fit-content;
+        align-items: center;
     }
     li{
         display: flex;
