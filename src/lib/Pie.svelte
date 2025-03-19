@@ -8,12 +8,13 @@
     let arcData = sliceGenerator(data);
     let arcs = arcData.map(d => arcGenerator(d));
 
+    let colors = ['gold', 'purple'];
 
 </script>
 
 <svg viewBox="-50 -50 100 100">
-    {#each arcs as arc}
-        <path d={arc} fill="red" />
+    {#each arcs as arc, index}
+        <path d={ arc } fill={ colors[index] } />
     {/each}
 </svg>
 
