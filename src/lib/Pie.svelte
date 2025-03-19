@@ -46,6 +46,9 @@
         width: 10em;
         height: 10em;
         background-color: var(--color);
+        border: 1 px solid black;
+        padding: 1em;
+        margin: 2em;
     }
     ul{
         display: grid;
@@ -55,6 +58,6 @@
     li{
         display: flex;
         align-items: center;
-        gap: 4em;
+        gap: 1em;
     }
 </style>
