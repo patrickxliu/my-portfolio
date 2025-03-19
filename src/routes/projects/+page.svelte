@@ -9,10 +9,19 @@
     import Pie from '$lib/Pie.svelte';
     import * as d3 from 'd3';
 
-    let rolledData = d3.rollups(projects, v => v.length, d => d.year);
-    let pieData = rolledData.map(([year, count]) => {
-        return { value: count, label: year };
-    });
+    let pieData;
+    $: {
+		// Initialize to an empty object every time this runs
+        pieData = {};
+        
+		// Calculate rolledData and pieData based on filteredProjects here
+        let rolledData = d3.rollups(filteredProjects, v => v.length, d => d.year);
+
+		// We don't need 'let' anymore since we already defined pieData
+        pieData = rolledData.map(([year, count]) => {
+            return { value: count, label: year };
+        });
+    }
 
     let query = "";
     $: filteredProjects = projects.filter(project => {
