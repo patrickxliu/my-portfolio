@@ -19,19 +19,22 @@
 
 </script>
 
-<svg viewBox="-50 -50 100 100">
-    {#each arcs as arc, index}
-        <path d={ arc } fill={ colors(index) } />
-    {/each}
-</svg>
-<ul class="legend">
-	{#each data as d, index}
-		<li style="--color: { colors(index) }">
-			<span class="swatch"></span>
-			{d.label} <em>({d.value})</em>
-		</li>
-	{/each}
-</ul>
+<div class="container">
+    <svg viewBox="-50 -50 100 100">
+        {#each arcs as arc, index}
+            <path d={ arc } fill={ colors(index) } />
+        {/each}
+    </svg>
+    <ul class="legend">
+        {#each data as d, index}
+            <li style="--color: { colors(index) }">
+                <span class="swatch"></span>
+                {d.label} <em>({d.value})</em>
+            </li>
+        {/each}
+    </ul>
+</div>
+
 
 <style>
     svg {
@@ -48,16 +51,21 @@
         background-color: var(--color);
         
     }
-    ul{
+    ul.legend{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
         border: 1px solid black;
         padding: 1em;
         margin: 2em;
+        flex: 1;
     }
     li{
         display: flex;
         align-items: center;
         gap: .25em;
+    }
+
+    .container{
+        display: flex;
     }
 </style>
