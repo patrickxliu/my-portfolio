@@ -8,7 +8,9 @@
     <img src={data.image} alt="" />
     <p>
       {data.description}
-      
+    </p>
+    <p>
+      {data.year}
     </p>
 </article>
 
@@ -20,7 +22,7 @@
   article{
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 3;
+    grid-row: span 4;
   }
 
   h2{
