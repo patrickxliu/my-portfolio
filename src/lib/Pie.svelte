@@ -51,12 +51,13 @@
     ul{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+        border: 1px solid black;
         padding: 1em;
         margin: 2em;
     }
     li{
         display: flex;
         align-items: center;
-        gap: 1em;
+        gap: .5em;
     }
 </style>
