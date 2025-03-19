@@ -38,5 +38,6 @@
 <style>
     input{
         width: 100%;
+        padding: 1em;
     }
 </style>
