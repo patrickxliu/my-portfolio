@@ -40,5 +40,21 @@
 
         /* Do not clip shapes outside the viewBox */
         overflow: visible;
-    }   
+    } 
+    span.swatch{
+        display: inline-block;
+        width: 10em;
+        height: 10em;
+        background-color: var(--color);
+    }
+    ul{
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
+
+    }
+    li{
+        display: flex;
+        align-items: center;
+        gap: 4em;
+    }
 </style>
