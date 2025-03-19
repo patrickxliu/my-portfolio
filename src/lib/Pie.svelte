@@ -60,8 +60,10 @@
         flex: 1;
         height: fit-content;
         width: fit-content;
-        align-items: center;
-        justify-content: center;
+        /* position: relative; */
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
     }
     li{
         display: flex;
