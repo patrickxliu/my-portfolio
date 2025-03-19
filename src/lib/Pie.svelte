@@ -43,8 +43,8 @@
     } 
     span.swatch{
         display: inline-block;
-        width: 10em;
-        height: 10em;
+        width: 2em;
+        height: 2em;
         background-color: var(--color);
         border: 1 px solid black;
         padding: 1em;
