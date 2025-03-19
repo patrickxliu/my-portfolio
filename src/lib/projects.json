@@ -1,31 +1,31 @@
 [
     {
         "title": "Persuasive/Deceptive Visualization",
-        "year": 2024,
+        "year": 2025,
         "image": "images/deceptive vis.png",
         "description": "Exploration of how design choices of a data visualization can impact the story it tells. The creation of two visualizations of data that argue for opposing sides of a proposition."
     },
     {
         "title": "Visualization Critique and Redesign",
-        "year": 2024,
+        "year": 2025,
         "image": "images/vis critique and redesign.jpg",
         "description": "Conducting a deep analysis and critique of an existing visualization and using the takeaways to design new visualizations that address issues in the original visualization while keeping its strengths."
     },
     {
         "title": "Exploratory Data Analysis",
-        "year": 2024,
+        "year": 2025,
         "image": "images/exploratory data analysis.png",
         "description": "Exploration of a dataset surrounding residential zoning laws in Greater Boston Municipalities to fomulate questions. Manipulating the data to get the story it tells, answer questions, and formulate new questions."
     },
     {
         "title": "Inventore saepe officia cumque.",
-        "year": 2023,
+        "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Minima aliquam fuga, modi sequi deserunt totam exercitationem fugiat doloremque mollitia. Impedit laboriosam rem natus amet? Accusantium aperiam, harum officia est iure quod eveniet dolores, numquam nisi placeat voluptate laboriosam!"
     },
     {
         "title": "Nulla sint unde et?",
-        "year": 2023,
+        "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Eveniet laboriosam debitis incidunt laborum dolor itaque, doloremque optio maiores ad quibusdam illo nam praesentium voluptates iste. Aut adipisci reprehenderit nihil facilis laborum. In odit natus deserunt harum esse. Voluptatem."
     },
@@ -61,13 +61,13 @@
     },
     {
         "title": "Libero velit eveniet omnis.",
-        "year": 2020,
+        "year": 2021,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Quam officiis a molestiae assumenda velit reprehenderit vitae, voluptates ullam magni reiciendis tempora autem rem, hic sit sapiente veniam quas exercitationem non possimus, quae molestias. Officiis exercitationem necessitatibus eaque sapiente!"
     },
     {
         "title": "Quam nemo odio atque!",
-        "year": 2019,
+        "year": 2020,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
         "description": "Ipsa ipsam, nulla quam at architecto commodi vel maxime quod aspernatur? Itaque cumque accusantium, reprehenderit dolor porro id tempore incidunt nihil quaerat quasi delectus soluta dolorum odit, tenetur perspiciatis fugiat."
     }
