@@ -43,17 +43,16 @@
     } 
     span.swatch{
         display: inline-block;
-        width: 2em;
-        height: 2em;
+        width: 1em;
+        height: 1em;
         background-color: var(--color);
-        border: 1 px solid black;
-        padding: 1em;
-        margin: 2em;
+        
     }
     ul{
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
-
+        padding: 1em;
+        margin: 2em;
     }
     li{
         display: flex;
