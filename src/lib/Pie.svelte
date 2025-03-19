@@ -58,6 +58,7 @@
     li{
         display: flex;
         align-items: center;
-        gap: .5em;
+        gap: .25em;
+        padding: 1em;
     }
 </style>
