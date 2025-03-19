@@ -55,8 +55,8 @@
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(8em, 1fr));
         border: 1px solid black;
-        padding: 1em;
-        margin: 2em;
+        padding: .5em;
+        margin: .5em;
         flex: 1;
     }
     li{
