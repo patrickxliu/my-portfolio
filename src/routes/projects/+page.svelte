@@ -29,6 +29,17 @@
 	    return values.includes(query.toLowerCase());
     });
 
+    $: filteredByYear = filteredProjects.filter(project => {
+        if (selectedYear) {
+            return project.year === selectedYear;
+        }
+
+        return true;
+    });
+
+    let selectedYearIndex = -1;
+    $: selectedYear = selectedYearIndex > -1 ? pieData[selectedYearIndex].label : null;
+
 </script>
 
 
@@ -36,14 +47,14 @@
     {projects.length} Projects
 </h1>
 
-<Pie data={pieData}/>
+<Pie data={pieData} bind:selectedIndex={selectedYearIndex}/>
 
 <input type="search" bind:value={query}
        aria-label="Search projects" placeholder="🔍 Search projects…"
 />
 
 <div class="projects">
-    {#each filteredProjects as p}
+    {#each filteredByYear as p}
     <Project data={p} />
     {/each}
 </div>
