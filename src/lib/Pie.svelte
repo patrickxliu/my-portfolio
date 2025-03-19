@@ -60,10 +60,6 @@
         flex: 1;
         height: fit-content;
         width: fit-content;
-        /* position: relative; */
-        top: 50%;
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
     }
     li{
         display: flex;
@@ -73,5 +69,7 @@
 
     .container{
         display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
