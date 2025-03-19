@@ -15,6 +15,10 @@
     });
 
     let query = "";
+    $: filteredProjects = projects.filter(project => {
+        let values = Object.values(project).join("\n").toLowerCase();
+	    return values.includes(query.toLowerCase());
+    });
 
 </script>
 
@@ -30,7 +34,7 @@
 />
 
 <div class="projects">
-    {#each projects as p}
+    {#each filteredProjects as p}
     <Project data={p} />
     {/each}
 </div>
