@@ -3,18 +3,18 @@
     let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
 
 
-    let data = [1, 2];
+    let data = [1, 2, 3, 4, 5, 5];
     let sliceGenerator = d3.pie();
     let arcData = sliceGenerator(data);
     let arcs = arcData.map(d => arcGenerator(d));
 
-    let colors = ['gold', 'purple'];
+    let colors = d3.scaleOrdinal(d3.schemeTableau10);
 
 </script>
 
 <svg viewBox="-50 -50 100 100">
     {#each arcs as arc, index}
-        <path d={ arc } fill={ colors[index] } />
+        <path d={ arc } fill={ colors(index) } />
     {/each}
 </svg>
 
