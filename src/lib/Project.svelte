@@ -8,11 +8,9 @@
     <img src={data.image} alt="" />
     <p>
       {data.description}
+      
     </p>
-    <p>
-      {data.year}
-    </p>
-  </article>
+</article>
 
 <style>
     /* display: grid;
