@@ -1,16 +1,20 @@
 <script>
     import * as d3 from 'd3';
     let arcGenerator = d3.arc().innerRadius(0).outerRadius(50);
-    let arc = arcGenerator({
-	startAngle: 0,
-	endAngle: 2 * Math.PI
-});
+
+
+    let data = [1, 2];
+    let sliceGenerator = d3.pie();
+    let arcData = sliceGenerator(data);
+    let arcs = arcData.map(d => arcGenerator(d));
 
 
 </script>
 
 <svg viewBox="-50 -50 100 100">
-    <path d={arc} fill="red" />
+    {#each arcs as arc}
+        <path d={arc} fill="red" />
+    {/each}
 </svg>
 
 <style>
