@@ -2,7 +2,7 @@
     {
         "title": "Persuasive/Deceptive Visualization",
         "year": 2024,
-        "image": "https://github.mit.edu/raw/pxliu/persuasive-deceptive-visualization/main/fossil%20fuels.png?token=AAAG27YFDF4JGUD6SQX7KXLH3MK6I",
+        "image": "images/deceptive vis.png",
         "description": "Exploration of how design choices of a data visualization can impact the story it tells. The creation of two visualizations of data that argue for opposing sides of a proposition."
     },
     {
@@ -14,7 +14,7 @@
     {
         "title": "Exploratory Data Analysis",
         "year": 2024,
-        "image": "https://github.mit.edu/raw/pxliu/exploratory-data-analysis/main/images/fhh%20vs%20nfhh.png?token=AAAG2766SXZSYXUBEKKI24TH3MKR6",
+        "image": "images/exploratory data analysis.png",
         "description": "Exploration of a dataset surrounding residential zoning laws in Greater Boston Municipalities to fomulate questions. Manipulating the data to get the story it tells, answer questions, and formulate new questions."
     },
     {
