@@ -13,9 +13,7 @@
 <h1>
     {projects.length} Projects
 </h1>
-<Pie>
-    
-</Pie>
+<Pie />
 <div class="projects">
     {#each projects as p}
     <Project data={p} />

@@ -1,1 +1,4 @@
 “Hello from Pie.svelte”
+
+<svg viewBox="-50 -50 100 100">
+</svg>
