@@ -179,8 +179,10 @@
     padding: 1em;
     box-shadow: 1px 1px gray;
     border-radius: 5px;
+    border-style: solid;
     border-color: gray;
-    background-color: white;
+    background-color: oklch(100% 0% 0 / 80%);
+    backdrop-filter: blur(5px);
   }
 
   .tooltip{
