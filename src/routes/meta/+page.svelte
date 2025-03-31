@@ -172,9 +172,10 @@
 
   dl.info{
     display: grid;
-      grid-template-columns: 3em 6em;
-      grid-template-rows: 1em,1em;
-      text-decoration: none;
+    grid-template-columns: 3em 6em;
+    grid-template-rows: 1em,1em;
+    text-decoration: none;
+    margin: 0%;
   }
 
   .tooltip{
