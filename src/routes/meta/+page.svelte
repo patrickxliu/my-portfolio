@@ -172,13 +172,15 @@
 
   dl.info{
     display: grid;
-    grid-template-columns: 3em 10em;
+    grid-template-columns: 3em 12em;
     grid-template-rows: 1em,1em;
     text-decoration: none;
     margin: 0%;
     padding: 1em;
-    box-shadow: 2px 2px #888888;
+    box-shadow: 1px 1px gray;
     border-radius: 5px;
+    border-color: gray;
+    background-color: white;
   }
 
   .tooltip{
