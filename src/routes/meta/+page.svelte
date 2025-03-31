@@ -42,7 +42,6 @@
 
     files= d3.groups(data, d => d.file)
 
-    let width = 1000, height = 600;
   });
   
   let width = 1000, height = 600;
@@ -60,27 +59,6 @@
   $: yScale = d3.scaleLinear()
                 .domain([24, 0])
                 .range([height, 0]);
-
-  let margin = {top: 10, right: 10, bottom: 30, left: 20};
-
-  let usableArea = {
-    top: margin.top,
-    right: width - margin.right,
-    bottom: height - margin.bottom,
-    left: margin.left
-  };
-  usableArea.width = usableArea.right - usableArea.left;
-  usableArea.height = usableArea.bottom - usableArea.top;
-
-  let xAxis, yAxis;
-
-  $: {
-    d3.select(xAxis).call(d3.axisBottom(xScale));
-    d3.select(yAxis).call(d3.axisLeft(yScale));
-  }
-
-  d3.select(yAxis).call(d3.axisLeft(yScale).tickFormat(d => String(d % 24).padStart(2, "0") + ":00"));
-
 
 </script>
 
@@ -118,8 +96,6 @@
       />
     {/each}
   </g>
-  <g transform="translate(0, {usableArea.bottom})" bind:this={xAxis} />
-  <g transform="translate({usableArea.left}, 0)" bind:this={yAxis} />
 </svg>
 
 
