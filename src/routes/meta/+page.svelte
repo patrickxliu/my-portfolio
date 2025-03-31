@@ -78,6 +78,10 @@
                 .domain([24, 0])
                 .range([usableArea.bottom, usableArea.top]);
 
+  $: rScale = d3.scaleLinear()
+                .domain([2,30])
+                .range(d3.extent(commits.totalLines))
+
   let xAxis, yAxis, yAxisGridlines;
 
   $: {
@@ -181,8 +185,9 @@
         on:mouseleave={evt => hoveredIndex = -1}
         cx={ xScale(commit.datetime) }
         cy={ yScale(commit.hourFrac) }
-        r="5"
+        r={ rScale(commit.totalLines) }
         fill="steelblue"
+        fill-opacity = ".8"
       />
     {/each}
   </g>
