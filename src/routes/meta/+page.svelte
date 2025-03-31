@@ -133,7 +133,15 @@
   
     <dt class="info">Date</dt>
     <dd class="info">{ hoveredCommit.datetime?.toLocaleString("en", {dateStyle: "full"}) }</dd>
-  
+
+    <dt class="info">Time</dt>
+    <dd class="info">{ hoveredCommit.time?.toLocaleString("en", {dateStyle: "full"}) }</dd>
+
+    <dt class="info">Author</dt>
+    <dd class="info">{ hoveredCommit.author?.toLocaleString("en", {dateStyle: "full"}) }</dd>
+
+    <dt class="info">Lines Edited</dt>
+    <dd class="info">{ hoveredCommit.totalLines?.toLocaleString("en", {dateStyle: "full"}) }</dd>
     <!-- Add: Time, author, lines edited -->
   </dl>
 
@@ -192,6 +200,6 @@
   dd.info{
       text-align: left;
       font-size: x-small;
-      font-weight: bold;
+      font-weight: normal;
   }
 </style>
