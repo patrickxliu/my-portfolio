@@ -6,7 +6,7 @@
   let data = [];
 
   onMount(async () => {
-    data = await d3.csv("static/loc.csv");
+    data = await d3.csv("images/loc.csv");
   });
 </script>
 

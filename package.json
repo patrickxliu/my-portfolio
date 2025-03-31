@@ -4,7 +4,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "vite dev",
-		"prebuild": "npx elocuent -d static,src -o static/loc.csv",
+		"prebuild": "npx elocuent -d static,src -o static/images/loc.csv",
 		"build": "vite build",
 		"preview": "vite preview"
 	},
