@@ -4,6 +4,7 @@
   import { onMount } from "svelte";
 
   let data = [];
+  let commits = [];
 
   onMount(async () => {
     data = await d3.csv("images/loc.csv", row => ({
@@ -14,31 +15,31 @@
       date: new Date(row.date + "T00:00" + row.timezone),
       datetime: new Date(row.datetime)
     }));
-  });
 
-  let commits = [];
-  commits = d3.groups(data, d => d.commit).map(([commit, lines]) => {
-    let first = lines[0];
-    let {author, date, time, timezone, datetime} = first;
-    let ret = {
-      id: commit,
-      url: "https://github.com/patrickxliu/my-portfolio/commit/" + commit,
-      author, date, time, timezone, datetime,
-      hourFrac: datetime.getHours() + datetime.getMinutes() / 60,
-      totalLines: lines.length
-    };
+    commits = d3.groups(data, d => d.commit).map(([commit, lines]) => {
+      let first = lines[0];
+      let {author, date, time, timezone, datetime} = first;
+      let ret = {
+        id: commit,
+        url: "https://github.com/patrickxliu/my-portfolio/commit/" + commit,
+        author, date, time, timezone, datetime,
+        hourFrac: datetime.getHours() + datetime.getMinutes() / 60,
+        totalLines: lines.length
+      };
 
-    // Like ret.lines = lines
-    // but non-enumerable so it doesn’t show up in JSON.stringify
-    Object.defineProperty(ret, "lines", {
-      value: lines,
-      configurable: true,
-      writable: true,
-      enumerable: false,
+      // Like ret.lines = lines
+      // but non-enumerable so it doesn’t show up in JSON.stringify
+      Object.defineProperty(ret, "lines", {
+        value: lines,
+        configurable: true,
+        writable: true,
+        enumerable: false,
+      });
+
+      return ret;
     });
-
-    return ret;
   });
+  
   console.log(commits);
 </script>
 
