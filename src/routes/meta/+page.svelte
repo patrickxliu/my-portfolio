@@ -6,12 +6,12 @@
   let data = [];
 
   onMount(async () => {
-    data = await d3.csv("/loc.csv");
+    data = await d3.csv("loc.csv");
   });
 </script>
 
 <svelte:head>
-  <title>Contact me</title>
+  <title>Meta Statistics</title>
 </svelte:head>
 
 <h1 >
