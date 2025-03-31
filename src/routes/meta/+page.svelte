@@ -45,6 +45,16 @@
   });
   
   let width = 1000, height = 600;
+  let margin = {top: 10, right: 10, bottom: 30, left: 20};
+
+  let usableArea = {
+    top: margin.top,
+    right: width - margin.right,
+    bottom: height - margin.bottom,
+    left: margin.left
+  };
+  usableArea.width = usableArea.right - usableArea.left;
+  usableArea.height = usableArea.bottom - usableArea.top;
 
   $: minDate = d3.min(commits.map(d => d.date));
   $: maxDate = d3.max(commits.map(d => d.date));
@@ -53,13 +63,20 @@
 
   $: xScale = d3.scaleTime()
                 .domain([minDate, maxDatePlusOne])
-                .range([0, width])
+                .range([usableArea.left, usableArea.right])
                 .nice();
 
   $: yScale = d3.scaleLinear()
                 .domain([24, 0])
-                .range([height, 0]);
+                .range([usableArea.bottom, usableArea.top]);
 
+  let xAxis, yAxis;
+
+  $: {
+    d3.select(xAxis).call(d3.axisBottom(xScale));
+    d3.select(yAxis).call(d3.axisLeft(yScale));
+  }
+  
 </script>
 
 <svelte:head>
@@ -86,6 +103,8 @@
 <h3>Commits by time of day</h3>
 <svg viewBox="0 0 {width} {height}">
 	<!-- scatterplot will go here -->
+  <g transform="translate(0, {usableArea.bottom})" bind:this={xAxis} />
+  <g transform="translate({usableArea.left}, 0)" bind:this={yAxis} />
   <g class="dots">
     {#each commits as commit, index }
       <circle
