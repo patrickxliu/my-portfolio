@@ -164,7 +164,7 @@
 
   dl.info{
     display: grid;
-      grid-template-columns: 1em 1em;
+      grid-template-columns: 1em 2em;
       grid-template-rows: 1em,1em;
       text-decoration: none;
   }
@@ -186,11 +186,11 @@
 
   dt.info{
       text-align: right;
-      font-size: small;
+      font-size:x-small;
       font-weight: lighter;
   }
   dd.info{
       text-align: left;
-      font-size: small;
+      font-size: x-small;
   }
 </style>
