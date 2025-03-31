@@ -5,6 +5,7 @@
 
   let data = [];
   let commits = [];
+  let files = [];
 
   onMount(async () => {
     data = await d3.csv("images/loc.csv", row => ({
@@ -38,6 +39,8 @@
 
       return ret;
     });
+
+    files= d3.groups(data, d => d.file)
   });
   
   console.log(commits);
@@ -58,10 +61,10 @@
 <dl class="stats">
 	<dt>Total <abbr title="Lines of code">LOC</abbr></dt>
   <dt>Total Commits</dt>
-  <dt>haha</dt>
+  <dt>Files</dt>
 	<dd>{data.length}</dd>
   <dd>{commits.length}</dd>
-  <dt>weeeee</dt>
+  <dd>{files.length}</dd>
 </dl>
 
 
