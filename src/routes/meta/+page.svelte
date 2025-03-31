@@ -53,7 +53,31 @@
     Hello World!
 </p>
 
+<h2>My GitHub Stats</h2>
 <dl class="stats">
 	<dt>Total <abbr title="Lines of code">LOC</abbr></dt>
+  <dt>Total Commits</dt>
+  <dt>haha</dt>
 	<dd>{data.length}</dd>
+  <dd>{commits.length}</dd>
+  <dt>weeeee</dt>
 </dl>
+
+
+<style>
+  dl{
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1em,2em;
+      text-decoration: none;
+  }
+  dt{
+      text-align: left;
+      font-size: small;
+  }
+  dd{
+      text-align: left;
+      font-size: x-large;
+      font-weight: lighter;
+  }
+</style>
