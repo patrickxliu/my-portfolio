@@ -172,10 +172,13 @@
 
   dl.info{
     display: grid;
-    grid-template-columns: 3em 6em;
+    grid-template-columns: 3em 10em;
     grid-template-rows: 1em,1em;
     text-decoration: none;
     margin: 0%;
+    padding: 1em;
+    box-shadow: 2px 2px #888888;
+    border-radius: 5px;
   }
 
   .tooltip{
@@ -196,11 +199,12 @@
   dt.info{
       text-align: right;
       font-size:x-small;
-      font-weight:lighter
+      font-weight:lighter;
   }
   dd.info{
       text-align: left;
       font-size: x-small;
       font-weight: normal;
+
   }
 </style>
