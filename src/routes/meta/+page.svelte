@@ -128,19 +128,19 @@
 </svg>
 
 <dl class="info tooltip">
-    <dt class="info">Commit</dt>
+    <dt class="info">COMMIT</dt>
     <dd class="info"><a href="{ hoveredCommit.url }" target="_blank">{ hoveredCommit.id }</a></dd>
   
-    <dt class="info">Date</dt>
+    <dt class="info">DATE</dt>
     <dd class="info">{ hoveredCommit.datetime?.toLocaleString("en", {dateStyle: "full"}) }</dd>
 
-    <dt class="info">Time</dt>
+    <dt class="info">TIME</dt>
     <dd class="info">{ hoveredCommit.time?.toLocaleString("en", {dateStyle: "full"}) }</dd>
 
-    <dt class="info">Author</dt>
+    <dt class="info">AUTHOR</dt>
     <dd class="info">{ hoveredCommit.author?.toLocaleString("en", {dateStyle: "full"}) }</dd>
 
-    <dt class="info">Lines Edited</dt>
+    <dt class="info">LINES</dt>
     <dd class="info">{ hoveredCommit.totalLines?.toLocaleString("en", {dateStyle: "full"}) }</dd>
     <!-- Add: Time, author, lines edited -->
   </dl>
@@ -172,7 +172,7 @@
 
   dl.info{
     display: grid;
-      grid-template-columns: 2em 4em;
+      grid-template-columns: 3em 6em;
       grid-template-rows: 1em,1em;
       text-decoration: none;
   }
