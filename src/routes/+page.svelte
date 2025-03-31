@@ -35,10 +35,10 @@
         <h2>My GitHub Stats</h2>
         <dl>
             <dt>Followers</dt>
-            <dd>{githubData.followers}</dd>
+            <dt>Public Repositories</dt>
             <dt>Following</dt>
             <dd>{githubData.following}</dd>
-            <dt>Public Repositories</dt>
+            <dd>{githubData.followers}</dd>
             <dd>{githubData.public_repos}</dd>
         </dl>
     </section>
