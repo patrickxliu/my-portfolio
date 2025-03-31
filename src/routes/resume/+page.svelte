@@ -5,7 +5,7 @@
 
 <h1>Resume</h1>
 <p>
-    <a href="Patrick Liu Resume.pdf" download>Download PDF version</a>
+    <a href="static/Patrick Liu Resume.pdf" download>Download PDF version</a>
 </p>
 <section class="Resume">
     <h2>Education</h2>
