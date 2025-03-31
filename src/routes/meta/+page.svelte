@@ -111,7 +111,20 @@
     else if (evt.type === "mouseleave") {
       hoveredIndex = -1
     }
+    else if (evt.type === "click") {
+      let commit = commits[index]
+      if (!clickedCommits.includes(commit)) {
+        // Add the commit to the clickedCommits array
+        clickedCommits = [...clickedCommits, commit];
+      }
+      else {
+          // Remove the commit from the array
+          clickedCommits = clickedCommits.filter(c => c !== commit);
+      }
+    }
   }
+
+  let clickedCommits = [];
 </script>
 
 <svelte:head>
@@ -144,6 +157,8 @@
   <g class="dots">
     {#each commits as commit, index }
       <circle
+        class:selected={ clickedCommits.includes(commit) }
+        on:click={ evt => dotInteraction(index, evt) }
         on:mouseenter={evt => dotInteraction(index, evt)}
         on:mouseleave={evt => dotInteraction(index, evt)}
         on:mouseenter={evt => {
@@ -251,5 +266,8 @@
       font-size: x-small;
       font-weight: normal;
 
+  }
+  .selected {
+    fill: var(--color-accent);
   }
 </style>
