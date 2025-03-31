@@ -9,6 +9,8 @@
     offset,
   } from '@floating-ui/dom';
 
+  import Bar from '$lib/Bar.svelte';
+
   let data = [];
   let commits = [];
   let files = [];
@@ -96,6 +98,8 @@
   let commitTooltip;
   let tooltipPosition = {x: 0, y: 0};
 
+  let clickedCommits = [];
+
   async function dotInteraction (index, evt) {
     let hoveredDot = evt.target;
     if (evt.type === "mouseenter") {
@@ -124,7 +128,15 @@
     }
   }
 
-  let clickedCommits = [];
+  $: allTypes = Array.from(new Set(data.map(d => d.type)));
+  $: selectedLines = (clickedCommits.length > 0 ? clickedCommits : commits).flatMap(d => d.lines);
+  $: selectedCounts = d3.rollup(
+    selectedLines,
+    v => v.length,
+    d => d.type
+  );
+  $: languageBreakdown = allTypes.map(type => [type, selectedCounts.get(type) || 0]);
+
 </script>
 
 <svelte:head>
@@ -175,6 +187,7 @@
     {/each}
   </g>
 </svg>
+<Bar data={languageBreakdown} width={width} />
 
 <dl class="info tooltip" hidden={hoveredIndex === -1} style="top: {tooltipPosition.y}px; left: {tooltipPosition.x}px" bind:this={commitTooltip}>
     <dt class="info">COMMIT</dt>
