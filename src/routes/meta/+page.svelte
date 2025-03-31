@@ -84,6 +84,8 @@
 
   let hoveredIndex = -1;
   $: hoveredCommit = commits[hoveredIndex] ?? hoveredCommit ?? {};
+
+  let cursor = {x: 0, y: 0};
 </script>
 
 <svelte:head>
@@ -116,6 +118,10 @@
   <g class="dots">
     {#each commits as commit, index }
       <circle
+        on:mouseenter={evt => {
+          hoveredIndex = index;
+          cursor = {x: evt.x, y: evt.y};
+        }}
         on:mouseenter={evt => hoveredIndex = index}
         on:mouseleave={evt => hoveredIndex = -1}
         cx={ xScale(commit.datetime) }
@@ -127,7 +133,7 @@
   </g>
 </svg>
 
-<dl class="info tooltip">
+<dl class="info tooltip" hidden={hoveredIndex === -1} style="top: {cursor.y}px; left: {cursor.x}px">
     <dt class="info">COMMIT</dt>
     <dd class="info"><a href="{ hoveredCommit.url }" target="_blank">{ hoveredCommit.id }</a></dd>
   
@@ -177,12 +183,19 @@
     text-decoration: none;
     margin: 0%;
     padding: 1em;
-    box-shadow: 1px 1px gray;
     border-radius: 5px;
     border-style: solid;
     border-color: gray;
     background-color: oklch(100% 0% 0 / 80%);
     backdrop-filter: blur(5px);
+
+    transition-duration: 500ms;
+    transition-property: opacity, visibility;
+
+    &[hidden]:not(:hover, :focus-within) {
+      opacity: 0;
+      visibility: hidden;
+    }
   }
 
   .tooltip{
