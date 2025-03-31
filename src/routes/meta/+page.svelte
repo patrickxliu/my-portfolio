@@ -41,9 +41,47 @@
     });
 
     files= d3.groups(data, d => d.file)
+
+    let width = 1000, height = 600;
   });
   
-  console.log(commits);
+  let width = 1000, height = 600;
+
+  $: minDate = d3.min(commits.map(d => d.date));
+  $: maxDate = d3.max(commits.map(d => d.date));
+  $: maxDatePlusOne = new Date(maxDate);
+  $: maxDatePlusOne.setDate(maxDatePlusOne.getDate() + 1);
+
+  $: xScale = d3.scaleTime()
+                .domain([minDate, maxDatePlusOne])
+                .range([0, width])
+                .nice();
+
+  $: yScale = d3.scaleLinear()
+                .domain([24, 0])
+                .range([height, 0]);
+
+  let margin = {top: 10, right: 10, bottom: 30, left: 20};
+
+  let usableArea = {
+    top: margin.top,
+    right: width - margin.right,
+    bottom: height - margin.bottom,
+    left: margin.left
+  };
+  usableArea.width = usableArea.right - usableArea.left;
+  usableArea.height = usableArea.bottom - usableArea.top;
+
+  let xAxis, yAxis;
+
+  $: {
+    d3.select(xAxis).call(d3.axisBottom(xScale));
+    d3.select(yAxis).call(d3.axisLeft(yScale));
+  }
+
+  d3.select(yAxis).call(d3.axisLeft(yScale).tickFormat(d => String(d % 24).padStart(2, "0") + ":00"));
+
+
 </script>
 
 <svelte:head>
@@ -67,6 +105,23 @@
   <dd>{files.length}</dd>
 </dl>
 
+<h3>Commits by time of day</h3>
+<svg viewBox="0 0 {width} {height}">
+	<!-- scatterplot will go here -->
+  <g class="dots">
+    {#each commits as commit, index }
+      <circle
+        cx={ xScale(commit.datetime) }
+        cy={ yScale(commit.hourFrac) }
+        r="5"
+        fill="steelblue"
+      />
+    {/each}
+  </g>
+  <g transform="translate(0, {usableArea.bottom})" bind:this={xAxis} />
+  <g transform="translate({usableArea.left}, 0)" bind:this={yAxis} />
+</svg>
+
 
 <style>
   dl{
@@ -84,4 +139,7 @@
       font-size: x-large;
       font-weight: lighter;
   }
+  svg {
+		overflow: visible;
+	}
 </style>
