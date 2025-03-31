@@ -3,11 +3,11 @@
 
 
     let pages = [
-        {url: "https://patrickxliu.github.io/my-portfolio/", title: "Home"},
-        {url: "https://patrickxliu.github.io/my-portfolio/projects/", title: "Projects"},
-        {url: "https://patrickxliu.github.io/my-portfolio/contact/", title: "Contact"},
-        {url: "https://patrickxliu.github.io/my-portfolio/resume/", title: "Resume"},
-        {url: "https://patrickxliu.github.io/my-portfolio/meta/", title: "Meta"},
+        {url: "https://patrickxliu.github.io/my-portfolio", title: "Home"},
+        {url: "https://patrickxliu.github.io/my-portfolio/projects", title: "Projects"},
+        {url: "https://patrickxliu.github.io/my-portfolio/contact", title: "Contact"},
+        {url: "https://patrickxliu.github.io/my-portfolio/resume", title: "Resume"},
+        {url: "https://patrickxliu.github.io/my-portfolio/meta", title: "Meta"},
         {url: "https://github.mit.edu/pxliu", title: "Github"}
     // add the rest of your pages here
     ];
@@ -33,7 +33,7 @@
 <nav>
     {#each pages as p}
     <a href={p.url}
-    class:current={$page.url == p.url}
+    class:current={$page.url == p.url || $page.url == p.url+"/"}
     target={p.url.endsWith("pxliu") ? "_blank" : null}
     >
         {p.title}
