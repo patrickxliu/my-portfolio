@@ -80,7 +80,7 @@
 
   $: rScale = d3.scaleLinear()
                 .domain([2,30])
-                .range(d3.extent(commits.totalLines))
+                .range(d3.extent(commits, d=> d.totalLines))
 
   let xAxis, yAxis, yAxisGridlines;
 
