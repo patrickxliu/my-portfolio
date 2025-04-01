@@ -48,6 +48,8 @@
       return ret;
     });
 
+    commits = d3.sort(commits, d => -d.totalLines);
+
     files= d3.groups(data, d => d.file)
 
   });
@@ -78,7 +80,7 @@
                 .domain([24, 0])
                 .range([usableArea.bottom, usableArea.top]);
 
-  $: rScale = d3.scaleSqrt([d3.extent(commits, d=> d.totalLines)], [2,30]);
+  $: rScale = d3.scaleSqrt(d3.extent(commits, d=> d.totalLines), [2,30]);
 
   let xAxis, yAxis, yAxisGridlines;
 
