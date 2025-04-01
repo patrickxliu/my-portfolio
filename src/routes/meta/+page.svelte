@@ -78,9 +78,7 @@
                 .domain([24, 0])
                 .range([usableArea.bottom, usableArea.top]);
 
-  $: rScale = d3.scaleLinear()
-                .domain(d3.extent(commits, d=> d.totalLines))
-                .range([2,30])
+  $: rScale = d3.scaleSqrt([d3.extent(commits, d=> d.totalLines)], [2,30]);
 
   let xAxis, yAxis, yAxisGridlines;
 
