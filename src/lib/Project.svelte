@@ -27,7 +27,7 @@
   article{
     display: grid;
     grid-template-rows: subgrid;
-    grid-row: span 4;
+    grid-row: span 5;
   }
 
   h2{
