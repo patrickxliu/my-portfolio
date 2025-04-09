@@ -1,74 +1,93 @@
 [
     {
+        "title": "Bikewatch",
+        "year": 2025,
+        "image": "images/bikewtch.png",
+        "description": "Visualization of BlueBike traffic in Boston and Cambridge.",
+        "url":"https://patrickxliu.github.io/bikewatch/"
+    },
+    {
         "title": "Persuasive/Deceptive Visualization",
         "year": 2025,
         "image": "images/deceptive vis.png",
-        "description": "Exploration of how design choices of a data visualization can impact the story it tells. The creation of two visualizations of data that argue for opposing sides of a proposition."
+        "description": "Exploration of how design choices of a data visualization can impact the story it tells. The creation of two visualizations of data that argue for opposing sides of a proposition.",
+        "url":"None"
     },
     {
         "title": "Visualization Critique and Redesign",
         "year": 2025,
         "image": "images/vis critique and redesign.jpg",
-        "description": "Conducting a deep analysis and critique of an existing visualization and using the takeaways to design new visualizations that address issues in the original visualization while keeping its strengths."
+        "description": "Conducting a deep analysis and critique of an existing visualization and using the takeaways to design new visualizations that address issues in the original visualization while keeping its strengths.",
+        "url":"None"
     },
     {
         "title": "Exploratory Data Analysis",
         "year": 2025,
         "image": "images/exploratory data analysis.png",
-        "description": "Exploration of a dataset surrounding residential zoning laws in Greater Boston Municipalities to fomulate questions. Manipulating the data to get the story it tells, answer questions, and formulate new questions."
+        "description": "Exploration of a dataset surrounding residential zoning laws in Greater Boston Municipalities to fomulate questions. Manipulating the data to get the story it tells, answer questions, and formulate new questions.",
+        "url":"None"
     },
     {
         "title": "Inventore saepe officia cumque.",
         "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Minima aliquam fuga, modi sequi deserunt totam exercitationem fugiat doloremque mollitia. Impedit laboriosam rem natus amet? Accusantium aperiam, harum officia est iure quod eveniet dolores, numquam nisi placeat voluptate laboriosam!"
+        "description": "Minima aliquam fuga, modi sequi deserunt totam exercitationem fugiat doloremque mollitia. Impedit laboriosam rem natus amet? Accusantium aperiam, harum officia est iure quod eveniet dolores, numquam nisi placeat voluptate laboriosam!",
+        "url":"None"
     },
     {
         "title": "Nulla sint unde et?",
         "year": 2024,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Eveniet laboriosam debitis incidunt laborum dolor itaque, doloremque optio maiores ad quibusdam illo nam praesentium voluptates iste. Aut adipisci reprehenderit nihil facilis laborum. In odit natus deserunt harum esse. Voluptatem."
+        "description": "Eveniet laboriosam debitis incidunt laborum dolor itaque, doloremque optio maiores ad quibusdam illo nam praesentium voluptates iste. Aut adipisci reprehenderit nihil facilis laborum. In odit natus deserunt harum esse. Voluptatem.",
+        "url":"None"
     },
     {
         "title": "Illum vero ab aspernatur?",
         "year": 2023,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Vel nihil iure ad blanditiis accusamus distinctio aliquam rerum voluptate est hic cupiditate dolore temporibus eos, corrupti cumque aliquid! Deserunt, expedita mollitia. Provident, temporibus. Saepe corrupti odio itaque dignissimos? Incidunt."
+        "description": "Vel nihil iure ad blanditiis accusamus distinctio aliquam rerum voluptate est hic cupiditate dolore temporibus eos, corrupti cumque aliquid! Deserunt, expedita mollitia. Provident, temporibus. Saepe corrupti odio itaque dignissimos? Incidunt.",
+        "url":"None"
     },
     {
         "title": "Nisi porro facere modi!",
         "year": 2023,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Eum doloribus minima voluptates. Aliquid facilis in saepe. Beatae deserunt earum quo tenetur mollitia? Nulla iste animi assumenda harum impedit error maiores illum quam cupiditate, quasi molestias delectus veritatis obcaecati!"
+        "description": "Eum doloribus minima voluptates. Aliquid facilis in saepe. Beatae deserunt earum quo tenetur mollitia? Nulla iste animi assumenda harum impedit error maiores illum quam cupiditate, quasi molestias delectus veritatis obcaecati!",
+        "url":"None"
     },
     {
         "title": "Reiciendis minima ipsam blanditiis?",
         "year": 2023,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Est consequatur nobis, molestias consequuntur laudantium dolor eius ab repudiandae, veniam culpa maiores. Est sed molestiae, pariatur libero aperiam nesciunt repellat sit magnam perferendis illum numquam illo non magni suscipit."
+        "description": "Est consequatur nobis, molestias consequuntur laudantium dolor eius ab repudiandae, veniam culpa maiores. Est sed molestiae, pariatur libero aperiam nesciunt repellat sit magnam perferendis illum numquam illo non magni suscipit.",
+        "url":"None"
     },
     {
         "title": "Veritatis corrupti ut quam.",
         "year": 2022,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Tenetur sit fuga sint animi esse illum voluptatibus rerum consectetur nulla rem ullam quo perferendis magni, voluptatum eaque numquam? Esse tempore ut libero quidem numquam minima aliquam inventore, blanditiis ipsam."
+        "description": "Tenetur sit fuga sint animi esse illum voluptatibus rerum consectetur nulla rem ullam quo perferendis magni, voluptatum eaque numquam? Esse tempore ut libero quidem numquam minima aliquam inventore, blanditiis ipsam.",
+        "url":"None"
     },
     {
         "title": "Dolorem placeat recusandae pariatur.",
         "year": 2022,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Ea, ipsum. Saepe quam magnam incidunt, dolorem voluptatem libero illo tempora ab enim laudantium sint, placeat eius et dicta! Doloremque consequatur saepe asperiores harum velit officia, ipsam iste delectus magni?"
+        "description": "Ea, ipsum. Saepe quam magnam incidunt, dolorem voluptatem libero illo tempora ab enim laudantium sint, placeat eius et dicta! Doloremque consequatur saepe asperiores harum velit officia, ipsam iste delectus magni?",
+        "url":"None"
     },
     {
         "title": "Libero velit eveniet omnis.",
         "year": 2021,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Quam officiis a molestiae assumenda velit reprehenderit vitae, voluptates ullam magni reiciendis tempora autem rem, hic sit sapiente veniam quas exercitationem non possimus, quae molestias. Officiis exercitationem necessitatibus eaque sapiente!"
+        "description": "Quam officiis a molestiae assumenda velit reprehenderit vitae, voluptates ullam magni reiciendis tempora autem rem, hic sit sapiente veniam quas exercitationem non possimus, quae molestias. Officiis exercitationem necessitatibus eaque sapiente!",
+        "url":"None"
     },
     {
         "title": "Quam nemo odio atque!",
         "year": 2020,
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "Ipsa ipsam, nulla quam at architecto commodi vel maxime quod aspernatur? Itaque cumque accusantium, reprehenderit dolor porro id tempore incidunt nihil quaerat quasi delectus soluta dolorum odit, tenetur perspiciatis fugiat."
+        "description": "Ipsa ipsam, nulla quam at architecto commodi vel maxime quod aspernatur? Itaque cumque accusantium, reprehenderit dolor porro id tempore incidunt nihil quaerat quasi delectus soluta dolorum odit, tenetur perspiciatis fugiat.",
+        "url":"None"
     }
 ]

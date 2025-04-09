@@ -12,6 +12,11 @@
     <p>
       {data.year}
     </p>
+    {#if data.url!="None"}
+      <p>
+        {data.url}
+      </p>
+    {/if}
 </article>
 
 <style>
