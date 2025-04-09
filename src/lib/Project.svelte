@@ -13,9 +13,9 @@
       {data.year}
     </p>
     {#if data.url!="None"}
-      <p>
+      <a href={data.url} target="_blank">
         {data.url}
-      </p>
+      </a>
     {/if}
 </article>
 

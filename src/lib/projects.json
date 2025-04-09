@@ -2,7 +2,7 @@
     {
         "title": "Bikewatch",
         "year": 2025,
-        "image": "images/bikewtch.png",
+        "image": "images/bikewatch.png",
         "description": "Visualization of BlueBike traffic in Boston and Cambridge.",
         "url":"https://patrickxliu.github.io/bikewatch/"
     },
