@@ -305,6 +305,6 @@
     display: block;
   }
   time{
-    align-content: end;
+    text-align: right;
   }
 </style>
