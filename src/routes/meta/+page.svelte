@@ -183,8 +183,8 @@
 	<dt>Total <abbr title="Lines of code">LOC</abbr></dt>
   <dt>Total Commits</dt>
   <dt>Files</dt>
-	<dd>{filteredLines.length}</dd>
-  <dd>{filteredCommits.length}</dd>
+	<dd>{data.length}</dd>
+  <dd>{commits.length}</dd>
   <dd>{files.length}</dd>
 </dl>
 
