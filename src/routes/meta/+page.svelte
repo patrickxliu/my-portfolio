@@ -71,9 +71,6 @@
   $: maxDatePlusOne = new Date(maxDate);
   $: maxDatePlusOne.setDate(maxDatePlusOne.getDate() + 1);
 
-  console.log(minDate);
-  console.log(maxDate);
-
   $: xScale = d3.scaleTime()
                 .domain([minDate, maxDatePlusOne])
                 .range([usableArea.left, usableArea.right])
@@ -145,7 +142,11 @@
   $: languageBreakdown = allTypes.map(type => [type, selectedCounts.get(type) || 0]);
 
   let commitProgress = 100;
-  $: commitMaxTime = xScale.invert(commitProgress);
+  $: timeScale = d3.scaleTime()
+                .domain([minDate, maxDatePlusOne])
+                .range([0, 100])
+                .nice();
+  $: commitMaxTime = timeScale.invert(commitProgress);
 </script>
 
 <svelte:head>
