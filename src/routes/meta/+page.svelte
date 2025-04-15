@@ -163,15 +163,15 @@
 </dl>
 
 <h3>Commits by time of day</h3>
-<div class="slider-container">
+<!-- <div class="slider-container">
   <label>
     Show commits until:
         <input bind:value={commitProgress} type="range" min="0" max="100" class="slider"/>
-        <!-- <time style="display: block">
+        <time style="display: block">
           {commitMaxTime.toLocaleString()}
-        </time> -->
+        </time>
   </label>
-</div>
+</div> -->
 <svg viewBox="0 0 {width} {height}">
 	<!-- scatterplot will go here -->
   <g transform="translate(0, {usableArea.bottom})" bind:this={xAxis} />
