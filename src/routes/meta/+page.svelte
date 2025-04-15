@@ -142,7 +142,7 @@
   $: languageBreakdown = allTypes.map(type => [type, selectedCounts.get(type) || 0]);
 
   let commitProgress = 100;
-  $: commitMaxTime = timeScale.invert(commitProgress);
+  $: commitMaxTime = xScale.invert(commitProgress);
 </script>
 
 <svelte:head>
@@ -163,7 +163,7 @@
 </dl>
 
 <h3>Commits by time of day</h3>
-<!-- <div class="slider-container">
+<div class="slider-container">
   <label>
     Show commits until:
         <input bind:value={commitProgress} type="range" min="0" max="100" class="slider"/>
@@ -171,7 +171,7 @@
           {commitMaxTime.toLocaleString()}
         </time>
   </label>
-</div> -->
+</div>
 <svg viewBox="0 0 {width} {height}">
 	<!-- scatterplot will go here -->
   <g transform="translate(0, {usableArea.bottom})" bind:this={xAxis} />
