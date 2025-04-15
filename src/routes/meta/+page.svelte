@@ -299,4 +299,12 @@
   .selected {
     fill: var(--color-accent);
   }
+  .slider {
+    width: 100vw;
+    max-width: 100%;
+    display: block;
+  }
+  time{
+    align-content: end;
+  }
 </style>
