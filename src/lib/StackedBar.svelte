@@ -6,6 +6,10 @@
 	export let barHeight = 30;
 	export let colorScale = d3.scaleOrdinal(d3.schemeTableau10);
 
+    $: keys = data.map(d => d[0]);
+    $: dataForStack = [Object.fromEntries(data)];
+    $: stackedData = d3.stack().keys(keys)(dataForStack);
+
 	let selectedIndex = -1;
 	let hoveredIndex = -1;
 
@@ -14,49 +18,55 @@
 	// Direct mapping from flatRollup-like data: [label, count]
 	$: barData = data.map(([label, count]) => ({ label, count }));
 
-	// X scale for bar length
-	$: xScale = d3.scaleLinear()
-			.domain([0, d3.max(barData, d => d.count) || 1]) // Avoid empty data crash
-			.range([0, width]);
+	$: total = d3.max(stackedData, series => d3.max(series, d => d[1])) || 1;
+
+    $: xScale = d3.scaleLinear()
+        .domain([0, total])
+        .range([0, width]);
 
 </script>
 
 <div class="container">
-	<svg viewBox="0 0 {width} {barHeight * barData.length}">
-		{#each barData as d, i (d.label)}
-			<rect
+	<svg {width} height={barHeight}>
+		{#each stackedData as series, i (series.key)}
+			{#each series as d, j}
+				<rect
 					class:selected={selectedIndex === i}
 					class:hovered={hoveredIndex === i}
-					x="0"
-					y={i * barHeight}
-					width={xScale(d.count)}
+					x={xScale(d[0])}
+					y="0"
+					width={xScale(d[1]) - xScale(d[0])}
 					height={barHeight - 5}
-					fill={colorScale(d.label)}
+					fill={colorScale(series.key)}
 					on:click={() => selectedIndex = selectedIndex === i ? -1 : i}
 					on:mouseenter={() => hoveredIndex = i}
 					on:mouseleave={() => hoveredIndex = -1}
-			/>
-			<text
-					class="label"
-					x={xScale(d.count) > MIN_LABEL_WIDTH ? xScale(d.count) - 5 : xScale(d.count) + 5}
-					y={i * barHeight + (barHeight - 5) / 2}
-					text-anchor={xScale(d.count) > MIN_LABEL_WIDTH ? "end" : "start"}
-					fill={xScale(d.count) > MIN_LABEL_WIDTH ? "white" : "black"}
-			>
-				{d.label}: {d.count}
-			</text>
+				/>
+				{#if (xScale(d[1]) - xScale(d[0]) > MIN_LABEL_WIDTH)}
+					<text
+						class="label"
+						x={(xScale(d[0]) + xScale(d[1])) / 2}
+						y={barHeight / 2}
+						text-anchor="middle"
+						fill="white"
+						dominant-baseline="middle"
+					>
+						{series.key}: {d[1] - d[0]}
+					</text>
+				{/if}
+			{/each}
 		{/each}
 	</svg>
 
 	<ul class="legend">
-		{#each barData as d, i}
+		{#each stackedData as series, i}
 			<li
-					style="--color: {colorScale(d.label)}"
+					style="--color: {colorScale(series.key)}"
 					class:selected={selectedIndex === i}
 					on:click={() => selectedIndex = selectedIndex === i ? -1 : i}
 			>
 				<span class="swatch"></span>
-				{d.label} <em>({d.count})</em>
+				{series.key} <em>({series[0][1] - series[0][0]})</em>
 			</li>
 		{/each}
 	</ul>

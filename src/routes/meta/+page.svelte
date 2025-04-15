@@ -9,7 +9,12 @@
     offset,
   } from '@floating-ui/dom';
 
-  import Bar from '$lib/Bar.svelte';
+  import StackedBar from '$lib/StackedBar.svelte';
+  import FileLines from "$lib/FileLines.svelte";
+  import Scrolly from "svelte-scrolly";
+
+  
+  let colorScale = d3.scaleOrdinal(d3.schemeTableau10);
 
   let data = [];
   let commits = [];
@@ -72,13 +77,15 @@
   $: maxDatePlusOne.setDate(maxDatePlusOne.getDate() + 1);
 
   let commitProgress = 100;
+  let raceProgress = 100;
   $: timeScale = d3.scaleTime()
                 .domain([minDate, maxDatePlusOne])
                 .range([0, 100])
                 .nice();
   $: commitMaxTime = timeScale.invert(commitProgress);
+  $: raceMaxTime = timeScale.invert(raceProgress)
   $: filteredCommits = commits.filter(commit => commit.datetime <= commitMaxTime)
-  $: filteredLines = data.filter(line => line.datetime <= commitMaxTime)
+  $: filteredLines = data.filter(line => line.datetime <= raceMaxTime)
 
   $: xScale = d3.scaleTime()
                 .domain([minDate, commitMaxTime])
@@ -142,13 +149,14 @@
   }
 
   $: allTypes = Array.from(new Set(data.map(d => d.type)));
-  $: selectedLines = (clickedCommits.length > 0 ? clickedCommits : commits).flatMap(d => d.lines);
+  $: selectedLines = (clickedCommits.length > 0 ? clickedCommits : filteredCommits).flatMap(d => d.lines);
   $: selectedCounts = d3.rollup(
     selectedLines,
     v => v.length,
     d => d.type
   );
   $: languageBreakdown = allTypes.map(type => [type, selectedCounts.get(type) || 0]);
+  
 </script>
 
 <svelte:head>
@@ -159,7 +167,7 @@
     Meta
 </h1>
 <h2>My GitHub Stats</h2>
-<div class="slider-container">
+<!-- <div class="slider-container">
   <label>
     Show commits until:
         <input bind:value={commitProgress} type="range" min="0" max="100" class="slider"/>
@@ -167,7 +175,10 @@
           {commitMaxTime.toLocaleString()}
         </time>
   </label>
-</div>
+</div> -->
+
+<!-- <FileLines lines={filteredLines} width={width?? 1000} colorScale={colorScale}/> -->
+
 <dl class="stats">
 	<dt>Total <abbr title="Lines of code">LOC</abbr></dt>
   <dt>Total Commits</dt>
@@ -178,34 +189,7 @@
 </dl>
 
 <h3>Commits by time of day</h3>
-<svg viewBox="0 0 {width} {height}">
-	<!-- scatterplot will go here -->
-  <g transform="translate(0, {usableArea.bottom})" bind:this={xAxis} />
-  <g class="gridlines" transform="translate({usableArea.left}, 0)" bind:this={yAxisGridlines} />
-  <g transform="translate({usableArea.left}, 0)" bind:this={yAxis} />
-  <g class="dots">
-    {#each filteredCommits as commit, index (commit.id) }
-      <circle
-        class:selected={ clickedCommits.includes(commit) }
-        on:click={ evt => dotInteraction(index, evt) }
-        on:mouseenter={evt => dotInteraction(index, evt)}
-        on:mouseleave={evt => dotInteraction(index, evt)}
-        on:mouseenter={evt => {
-          hoveredIndex = index;
-          cursor = {x: evt.x, y: evt.y};
-        }}
-        on:mouseenter={evt => hoveredIndex = index}
-        on:mouseleave={evt => hoveredIndex = -1}
-        cx={ xScale(commit.datetime) }
-        cy={ yScale(commit.hourFrac) }
-        r={ rScale(commit.totalLines) }
-        fill="steelblue"
-        fill-opacity = ".8"
-      />
-    {/each}
-  </g>
-</svg>
-<Bar data={languageBreakdown} width={width} />
+
 
 <dl class="info tooltip" hidden={hoveredIndex === -1} style="top: {tooltipPosition.y}px; left: {tooltipPosition.x}px" bind:this={commitTooltip}>
     <dt class="info">COMMIT</dt>
@@ -223,11 +207,84 @@
     <dt class="info">LINES</dt>
     <dd class="info">{ hoveredCommit.totalLines?.toLocaleString("en", {dateStyle: "full"}) }</dd>
     <!-- Add: Time, author, lines edited -->
-  </dl>
+</dl>
+
+<Scrolly bind:progress={ commitProgress }>
+  {#each commits as commit, index }
+    <p>
+      On {commit.datetime.toLocaleString("en", {dateStyle: "full", timeStyle: "short"})},
+      {index === 0 
+        ? "I set forth on my very first commit, beginning a magical journey of code. You can view it "
+        : "I added another enchanted commit, each line sparkling with a touch of wonder. See it "}
+      <a href="{commit.url}" target="_blank">
+        {index === 0 ? "here" : "here"}
+      </a>.
+      This update transformed {commit.totalLines} lines across { d3.rollups(commit.lines, D => D.length, d => d.file).length } files.
+      With every commit, our project grows into a kingdom of dreams.
+    </p>
+  {/each}
+	<svelte:fragment slot="viz">
+		<svg viewBox="0 0 {width} {height}">
+      <!-- scatterplot will go here -->
+      <g transform="translate(0, {usableArea.bottom})" bind:this={xAxis} />
+      <g class="gridlines" transform="translate({usableArea.left}, 0)" bind:this={yAxisGridlines} />
+      <g transform="translate({usableArea.left}, 0)" bind:this={yAxis} />
+      <g class="dots">
+        {#each filteredCommits as commit, index (commit.id) }
+          <circle
+            class:selected={ clickedCommits.includes(commit) }
+            on:click={ evt => dotInteraction(index, evt) }
+            on:mouseenter={evt => dotInteraction(index, evt)}
+            on:mouseleave={evt => dotInteraction(index, evt)}
+            on:mouseenter={evt => {
+              hoveredIndex = index;
+              cursor = {x: evt.x, y: evt.y};
+            }}
+            on:mouseenter={evt => hoveredIndex = index}
+            on:mouseleave={evt => hoveredIndex = -1}
+            cx={ xScale(commit.datetime) }
+            cy={ yScale(commit.hourFrac) }
+            r={ rScale(commit.totalLines) }
+            fill="steelblue"
+            fill-opacity = ".8"
+          />
+        {/each}
+      </g>
+    </svg>
+    <StackedBar data={languageBreakdown} width={.4} colorScale={colorScale} />
+	</svelte:fragment>
+</Scrolly>
+
+<Scrolly bind:progress={raceProgress} --scrolly-layout="viz-first" --scrolly-viz-width="3fr">
+	{#each commits as commit, index }
+    <p>
+      On {commit.datetime.toLocaleString("en", {dateStyle: "full", timeStyle: "short"})},
+      {index === 0 
+        ? "I set forth on my very first commit, beginning a magical journey of code. You can view it "
+        : "I added another enchanted commit, each line sparkling with a touch of wonder. See it "}
+      <a href="{commit.url}" target="_blank">
+        {index === 0 ? "here" : "here"}
+      </a>.
+      This update transformed {commit.totalLines} lines across { d3.rollups(commit.lines, D => D.length, d => d.file).length } files.
+      With every commit, our project grows into a kingdom of dreams.
+    </p>
+  {/each}
+	<svelte:fragment slot="viz">
+		<FileLines lines={filteredLines} svgWidth={width*.75} colorScale={colorScale}/>
+	</svelte:fragment>
+</Scrolly>
+
+
+
+
+
 
 
 
 <style>
+  :global(body){
+    max-width: min(120ch, 80vw);
+  }
   dl{
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
