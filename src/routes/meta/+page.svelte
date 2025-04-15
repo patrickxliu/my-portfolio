@@ -251,7 +251,7 @@
         {/each}
       </g>
     </svg>
-    <StackedBar data={languageBreakdown} width={.4} colorScale={colorScale} />
+    <StackedBar data={languageBreakdown} width={width*.4} colorScale={colorScale} />
 	</svelte:fragment>
 </Scrolly>
 
