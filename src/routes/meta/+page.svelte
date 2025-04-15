@@ -184,7 +184,7 @@
   <g class="gridlines" transform="translate({usableArea.left}, 0)" bind:this={yAxisGridlines} />
   <g transform="translate({usableArea.left}, 0)" bind:this={yAxis} />
   <g class="dots">
-    {#each filteredCommits as commit, index }
+    {#each filteredCommits as commit, index (commit.id) }
       <circle
         class:selected={ clickedCommits.includes(commit) }
         on:click={ evt => dotInteraction(index, evt) }
@@ -284,6 +284,9 @@
 
     &:hover {
       transform: scale(1.5);
+    }
+    @starting-style {
+      r: 0;
     }
   }
 
