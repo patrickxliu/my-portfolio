@@ -71,6 +71,9 @@
   $: maxDatePlusOne = new Date(maxDate);
   $: maxDatePlusOne.setDate(maxDatePlusOne.getDate() + 1);
 
+  console.log(minDate);
+  console.log(maxDate);
+
   $: xScale = d3.scaleTime()
                 .domain([minDate, maxDatePlusOne])
                 .range([usableArea.left, usableArea.right])
