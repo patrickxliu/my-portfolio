@@ -71,8 +71,17 @@
   $: maxDatePlusOne = new Date(maxDate);
   $: maxDatePlusOne.setDate(maxDatePlusOne.getDate() + 1);
 
-  $: xScale = d3.scaleTime()
+  let commitProgress = 100;
+  $: timeScale = d3.scaleTime()
                 .domain([minDate, maxDatePlusOne])
+                .range([0, 100])
+                .nice();
+  $: commitMaxTime = timeScale.invert(commitProgress);
+  $: filteredCommits = commits.filter(commit => commit.datetime <= commitMaxTime)
+  $: filteredLines = data.filter(line => line.datetime <= commitMaxTime)
+
+  $: xScale = d3.scaleTime()
+                .domain([minDate, commitMaxTime])
                 .range([usableArea.left, usableArea.right])
                 .nice();
 
@@ -80,7 +89,7 @@
                 .domain([24, 0])
                 .range([usableArea.bottom, usableArea.top]);
 
-  $: rScale = d3.scaleSqrt(d3.extent(commits, d=> d.totalLines), [2,25]);
+  $: rScale = d3.scaleSqrt(d3.extent(filteredCommits, d=> d.totalLines), [2,25]);
 
   let xAxis, yAxis, yAxisGridlines;
 
@@ -95,7 +104,7 @@
   }
 
   let hoveredIndex = -1;
-  $: hoveredCommit = commits[hoveredIndex] ?? hoveredCommit ?? {};
+  $: hoveredCommit = filteredCommits[hoveredIndex] ?? hoveredCommit ?? {};
 
   let cursor = {x: 0, y: 0};
 
@@ -140,13 +149,6 @@
     d => d.type
   );
   $: languageBreakdown = allTypes.map(type => [type, selectedCounts.get(type) || 0]);
-
-  let commitProgress = 100;
-  $: timeScale = d3.scaleTime()
-                .domain([minDate, maxDatePlusOne])
-                .range([0, 100])
-                .nice();
-  $: commitMaxTime = timeScale.invert(commitProgress);
 </script>
 
 <svelte:head>
@@ -161,8 +163,8 @@
 	<dt>Total <abbr title="Lines of code">LOC</abbr></dt>
   <dt>Total Commits</dt>
   <dt>Files</dt>
-	<dd>{data.length}</dd>
-  <dd>{commits.length}</dd>
+	<dd>{filteredLines.length}</dd>
+  <dd>{filteredCommits.length}</dd>
   <dd>{files.length}</dd>
 </dl>
 
