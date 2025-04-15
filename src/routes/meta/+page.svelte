@@ -167,9 +167,9 @@
   <label>
     Show commits until:
         <input bind:value={commitProgress} type="range" min="0" max="100" class="slider"/>
-        <time style="display: block">
+        <!-- <time style="display: block">
           {commitMaxTime.toLocaleString()}
-        </time>
+        </time> -->
   </label>
 </div>
 <svg viewBox="0 0 {width} {height}">
