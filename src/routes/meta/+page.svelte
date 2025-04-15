@@ -184,7 +184,7 @@
   <g class="gridlines" transform="translate({usableArea.left}, 0)" bind:this={yAxisGridlines} />
   <g transform="translate({usableArea.left}, 0)" bind:this={yAxis} />
   <g class="dots">
-    {#each commits as commit, index }
+    {#each filteredCommits as commit, index }
       <circle
         class:selected={ clickedCommits.includes(commit) }
         on:click={ evt => dotInteraction(index, evt) }
