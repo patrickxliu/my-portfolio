@@ -136,7 +136,7 @@
       hoveredIndex = -1
     }
     else if (evt.type === "click") {
-      let commit = commits[index]
+      let commit = filteredCommits[index]
       if (!clickedCommits.includes(commit)) {
         // Add the commit to the clickedCommits array
         clickedCommits = [...clickedCommits, commit];
@@ -361,12 +361,12 @@
   .selected {
     fill: var(--color-accent);
   }
-  .slider {
+  /* .slider {
     width: 100vw;
     max-width: 100%;
     display: block;
   }
   time{
     text-align: right;
-  }
+  } */
 </style>
