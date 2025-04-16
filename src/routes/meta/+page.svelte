@@ -87,6 +87,10 @@
   $: filteredCommits = commits.filter(commit => commit.datetime <= commitMaxTime)
   $: filteredLines = data.filter(line => line.datetime <= raceMaxTime)
 
+  $: majorCommits = commits
+  .filter(c => c.totalLines > 20 || new Set(c.lines.map(l => l.file)).size > 10)
+  .sort((a, b) => new Date(a.datetime) - new Date(b.datetime));
+
   $: xScale = d3.scaleTime()
                 .domain([minDate, commitMaxTime])
                 .range([usableArea.left, usableArea.right])
@@ -210,17 +214,40 @@
 </dl>
 
 <Scrolly bind:progress={ commitProgress }>
-  {#each commits as commit, index }
+  {#each majorCommits as commit, index }
     <p>
       On {commit.datetime.toLocaleString("en", {dateStyle: "full", timeStyle: "short"})},
       {index === 0 
-        ? "I set forth on my very first commit, beginning a magical journey of code. You can view it "
-        : "I added another enchanted commit, each line sparkling with a touch of wonder. See it "}
+        ? "I ported my portfolio and made my first commit to this repo for lab 4 when I ported my portfolio to Sveltekit."
+        : ""}
+      {index === 1
+        ? "I made my first and only significant commit to lab 5 which focused on templating and control flow with svelte."
+        : ""}
+      {index === 2
+        ? "I made one of two significant commits for lab 6 which focused on vizualizing categorical data with d3. This led to the pie charts on the projects page."
+        : ""}
+      {index === 3
+        ? "I the second of two significant commits for lab 6."
+        : ""}
+      {index === 4
+        ? "I made my first significant commit for lab 7 which focused on visualizing categorical data with d3. This led to the creation of this meta page."
+        : ""}
+      {index === 5
+        ? "I made the second significant commit for lab 7. This was during the creation of the commits plot of the meta page."
+        : ""}
+      {index === 6
+        ? "I made the last significant commit for lab 7. This added the original bar chart that was present on the meta page"
+        : ""}
+      {index === 7
+        ? "I made a significant commit to lab 9 which focused on animation and scrolleytelling. This commit added the original functioning slider on the page."
+        : ""}
+      {index === 8
+        ? "I made the second significant commit for lab 9. This commit removed the slider and instead added two scolleys. It also implemented the longest file race that is used in one of the scrolleys."
+        : ""}
+      This update transformed {commit.totalLines} lines across { d3.rollups(commit.lines, D => D.length, d => d.file).length } files. View the commit 
       <a href="{commit.url}" target="_blank">
         {index === 0 ? "here" : "here"}
       </a>.
-      This update transformed {commit.totalLines} lines across { d3.rollups(commit.lines, D => D.length, d => d.file).length } files.
-      With every commit, our project grows into a kingdom of dreams.
     </p>
   {/each}
 	<svelte:fragment slot="viz">
@@ -256,17 +283,40 @@
 </Scrolly>
 
 <Scrolly bind:progress={raceProgress} --scrolly-layout="viz-first" --scrolly-viz-width="3fr">
-	{#each commits as commit, index }
+	{#each majorCommits as commit, index }
     <p>
       On {commit.datetime.toLocaleString("en", {dateStyle: "full", timeStyle: "short"})},
       {index === 0 
-        ? "I set forth on my very first commit, beginning a magical journey of code. You can view it "
-        : "I added another enchanted commit, each line sparkling with a touch of wonder. See it "}
+        ? "I ported my portfolio and made my first commit to this repo for lab 4 when I ported my portfolio to Sveltekit."
+        : ""}
+      {index === 1
+        ? "I made my first and only significant commit to lab 5 which focused on templating and control flow with svelte."
+        : ""}
+      {index === 2
+        ? "I made one of two significant commits for lab 6 which focused on vizualizing categorical data with d3. This led to the pie charts on the projects page."
+        : ""}
+      {index === 3
+        ? "I the second of two significant commits for lab 6."
+        : ""}
+      {index === 4
+        ? "I made my first significant commit for lab 7 which focused on visualizing categorical data with d3. This led to the creation of this meta page."
+        : ""}
+      {index === 5
+        ? "I made the second significant commit for lab 7. This was during the creation of the commits plot of the meta page."
+        : ""}
+      {index === 6
+        ? "I made the last significant commit for lab 7. This added the original bar chart that was present on the meta page"
+        : ""}
+      {index === 7
+        ? "I made a significant commit to lab 9 which focused on animation and scrolleytelling. This commit added the original functioning slider on the page."
+        : ""}
+      {index === 8
+        ? "I made the second significant commit for lab 9. This commit removed the slider and instead added two scolleys. It also implemented the longest file race that is used in one of the scrolleys."
+        : ""}
+      This update transformed {commit.totalLines} lines across { d3.rollups(commit.lines, D => D.length, d => d.file).length } files. View the commit 
       <a href="{commit.url}" target="_blank">
         {index === 0 ? "here" : "here"}
       </a>.
-      This update transformed {commit.totalLines} lines across { d3.rollups(commit.lines, D => D.length, d => d.file).length } files.
-      With every commit, our project grows into a kingdom of dreams.
     </p>
   {/each}
 	<svelte:fragment slot="viz">
